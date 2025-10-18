@@ -17,7 +17,7 @@ public class AuthController {
     private AuthenticationService authenticationService;
 
     // NÓS IREMOS DEIXAR A LÓGICA DE LOGIN DENTRO DO AuthenticationService
-    // Apenas remova a linha @Autowired private AuthenticationManager authenticationManager; se ela existir.
+
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {

@@ -2,7 +2,7 @@ package com.arborismo.monitoramentoarvores.controller;
 
 import com.arborismo.monitoramentoarvores.dto.EmpresaCadastroDTO;
 import com.arborismo.monitoramentoarvores.model.Empresa;
-import com.arborismo.monitoramentoarvores.service.EmpresaService; // Vamos criar este Service a seguir!
+import com.arborismo.monitoramentoarvores.service.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

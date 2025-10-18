@@ -65,7 +65,7 @@ public class EmpresaService {
         empresa.setNomeContato(dto.getNomeContato());
         empresa.setCargoContato(dto.getCargoContato());
 
-        // Data de Cadastro é gerada no construtor da Entidade
+
 
         return empresa;
     }

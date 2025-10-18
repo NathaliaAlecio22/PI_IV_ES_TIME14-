@@ -28,7 +28,7 @@ public class UsuarioController {
         } catch (RuntimeException e) {
             // Retorna o erro 400 BAD REQUEST se o CPF/E-mail já existir
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-            // Em um projeto real, retornaríamos uma mensagem de erro mais detalhada no corpo.
+
         }
     }
 }

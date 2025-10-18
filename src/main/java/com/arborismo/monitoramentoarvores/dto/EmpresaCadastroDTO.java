@@ -26,7 +26,7 @@ public class EmpresaCadastroDTO {
     // Contato e Login
     private String emailCorporativo;
     private String telefone;
-    private String senha; // Senha deve ser criptografada na camada Service
+    private String senha;
 
     // Pessoa de Contato
     private String nomeContato;

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 // DTO para retornar o token após o login bem-sucedido
 @Data
 @NoArgsConstructor
-@AllArgsConstructor // ADICIONE ESTA ANOTAÇÃO
+@AllArgsConstructor
 public class LoginResponse {
     private String token;
     private String tipoUsuario; // Ex: "PF" ou "PJ"
