@@ -1,0 +1,100 @@
+
+/* --- Container Principal do Corpo (Para alinhamento) --- */
+.dashboard-central {
+    display: flex; 
+    padding: 20px; 
+    gap: 20px; 
+}
+
+/* --- Coluna Lateral de Projetos --- */
+
+.central-projetos {
+    width: 250px; 
+    background-color: #dcdad2; /* Fundo bege claro */
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 5px 10px; 
+    box-shadow: 
+        0 5px 10px -5px rgba(0, 0, 0, 0.5), 
+        -5px 0 10px -5px rgba(0, 0, 0, 0.5); 
+}
+
+.projetos-titulo {
+    font-size: 28px;
+    color: #386733; /* Cor do título (Verde Escuro) */
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 0 10px 5px; 
+    border-bottom: 1px solid rgba(56, 103, 51, 0.2); /* Linha divisória sutil */
+}
+
+
+/* --- Lista e Itens de Projetos --- */
+
+.lista-projetos {
+    list-style: none; 
+    padding: 0 10px; 
+    margin: 0;
+}
+
+.projeto-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 8px; 
+    padding: 8px 10px; 
+    border-radius: 8px;
+    cursor: pointer;
+    min-height: 40px; 
+    transition: background-color 0.2s;
+}
+
+
+.projeto-item:hover {
+    background-color: rgba(172, 22, 22, 0.05); 
+}
+
+/* --- Item de Projeto Ativo (O Destaque Azul) --- */
+
+.projeto-item.active {
+    background-color: #D5E1F0; /* Fundo azul claro */
+    border-left: 5px solid #386733; /* Linha de destaque na lateral esquerda (Verde Escuro) */
+    padding-left: 5px; 
+}
+
+/* --- Nome do Projeto --- */
+
+.projeto-nome {
+    text-decoration: none;
+    color: #386733; /* Cor padrão do texto (Verde Escuro) */
+    font-size: 14px;
+    line-height: 1.2;
+    flex-grow: 1; 
+    padding-right: 10px;
+}
+
+
+/* --- Ícones de Ação (Editar e Deletar) --- */
+
+.projeto-acoes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.icon-edit, .icon-delete {
+    height: 18px; 
+    width: 18px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.icon-edit:hover, .icon-delete:hover {
+    opacity: 100%;
+}
+
+
+
+
+
+
+
