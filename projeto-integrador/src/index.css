@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700;800&display=swap');
+body {
+    /* Define o fundo da página como um degradê */
+    background: linear-gradient(
+        to bottom, 
+        #ffffff 0%, /* Começa com Branco no topo (0%) */
+        #e3f1de 80%, /* Vai para o Verde Musgo Claro (Fundo da sua página) */
+        #cae6d1 100%  /* E termina com um tom ligeiramente mais escuro no rodapé */
+    );
+    /* Garante que o fundo cubra toda a altura da tela */
+    min-height: 100vh;
+    margin: 0; /* Remove margens padrão do body */
+    font-family: 'Kanit', sans-serif;
+}
+
+
+
+.nav-dashboard {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px; 
+    background-color: transparent; 
+    
+}
+
+
+.nav-left {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin-right: 10px; /* Espaço entre a logo e o bloco verde */
+    padding-top: 0px; /* Ajusta o alinhamento vertical com o bloco verde */
+}
+
+.logo-nav {
+    height: 114px; 
+    width: auto;
+    padding-right: 1px;
+    margin: 0px;
+}
+
+
+.nav-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; 
+    background-color: #386733; /* Cor de fundo principal (Verde Escuro) */
+    padding: 0px 28px; 
+    height: 65px; 
+    border-radius: 12px; /* Cantos arredondados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* --- Seção Central (Links) --- */
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 70px; 
+    height: 100%;
+}
+
+.nav-link {
+    color: #ffffff; 
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    height: 100%;
+    transition: color 0.3s;
+}
+
+.nav-link.active {
+    /* Link Ativo - Estilo "Projetos" */
+    font-weight: 1000; /* Mais negrito */
+    color: #ffffff; 
+    position: relative;
+}
+
+.nav-link.active::after {
+    /* Linha branca de sublinhado */
+    content: '';
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+/* --- Seção Direita (Nome e Ícone de Perfil) --- */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    color: #ffffff; 
+    font-size: 16px;
+
+}
+
+.nav-username {
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 1px;
+}
+
+.logo-username{
+    height: 40px;
+    padding: 0px;
+    margin-top: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Container Principal do Corpo (Para alinhamento) --- */
+.dashboard-central {
+    display: flex; 
+    padding: 20px; 
+    gap: 20px; 
+}
+
+/* --- Coluna Lateral de Projetos --- */
+
+.central-projetos {
+    width: 250px; 
+    background-color: #dcdad2; /* Fundo bege claro */
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 5px 10px; 
+    box-shadow: 
+        0 5px 10px -5px rgba(0, 0, 0, 0.5), 
+        -5px 0 10px -5px rgba(0, 0, 0, 0.5); 
+}
+
+.projetos-titulo {
+    font-size: 28px;
+    color: #386733; /* Cor do título (Verde Escuro) */
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 0 10px 5px; 
+    border-bottom: 1px solid rgba(56, 103, 51, 0.2); /* Linha divisória sutil */
+}
+
+
+/* --- Lista e Itens de Projetos --- */
+
+.lista-projetos {
+    list-style: none; 
+    padding: 0 10px; 
+    margin: 0;
+}
+
+.projeto-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 8px; 
+    padding: 8px 10px; 
+    border-radius: 8px;
+    cursor: pointer;
+    min-height: 40px; 
+    transition: background-color 0.2s;
+}
+
+
+.projeto-item:hover {
+    background-color: rgba(172, 22, 22, 0.05); 
+}
+
+/* --- Item de Projeto Ativo (O Destaque Azul) --- */
+
+.projeto-item.active {
+    background-color: #D5E1F0; /* Fundo azul claro */
+    border-left: 5px solid #386733; /* Linha de destaque na lateral esquerda (Verde Escuro) */
+    padding-left: 5px; 
+}
+
+/* --- Nome do Projeto --- */
+
+.projeto-nome {
+    text-decoration: none;
+    color: #386733; /* Cor padrão do texto (Verde Escuro) */
+    font-size: 14px;
+    line-height: 1.2;
+    flex-grow: 1; 
+    padding-right: 10px;
+}
+
+
+/* --- Ícones de Ação (Editar e Deletar) --- */
+
+.projeto-acoes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.icon-edit, .icon-delete {
+    height: 18px; 
+    width: 18px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.icon-edit:hover, .icon-delete:hover {
+    opacity: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Container Principal do Conteúdo --- */
+
+.container-conteudo {
+    flex-grow: 1; 
+    background-color: #dcdad2; 
+    border-radius: 10px;
+    padding: 2px 30px 30px;
+    box-shadow: 
+        0 5px 10px -5px rgba(0, 0, 0, 0.5), 
+        -5px 0 10px -5px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- Títulos e Informações do Projeto --- */
+
+.titulo-conteudo {
+    font-size: 30px;
+    color: #386733; /* Verde Escuro */
+    font-weight: 100%;
+    margin-bottom: 20px;
+}
+
+.descricao, .data-criacao {
+    margin-bottom: 20px;
+}
+
+.titulo-descricao, .titulo-data-criacao {
+    font-size: 20px;
+    color: #386733; /* Verde Escuro */
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+
+.paragrafo-descricao, .data {
+    font-size: 17px;
+    color: #555;
+    margin: 0;
+}
+
+/* --- Seção de Árvores Cadastradas --- */
+
+.titulo-arvores-cadastradas {
+    font-size: 24px;
+    color: #386733; /* Verde Escuro */
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Botão "Adicionar Árvore" */
+.botao-adicionar-arvore {
+    background-color: #386733; /* Verde Escuro */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1;
+    margin-bottom: 15px;
+    transition: background-color 0.2s;
+}
+
+.botao-adicionar-arvore:hover {
+    background-color: #508a4a; 
+}
+
+/* --- Tabela de Árvores (Grid Layout) --- */
+
+.tabela-arvores {
+    width: 100%;
+    display: grid;
+    /* Define 4 colunas com larguras proporcionais */
+    grid-template-columns: 2fr 3fr 2fr 1fr; 
+    font-size: 14px;
+}
+
+/* Cabeçalho da Tabela */
+.tabela-cabecalho {
+    display: contents; /* Os spans se alinham diretamente no grid */
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.coluna-cabecalho {
+    padding: 10px 15px;
+    background-color: #aaaaaa; /* Fundo cinza do cabeçalho */
+    /* Garante que o texto se alinhe verticalmente */
+    display: flex;
+    align-items: center; 
+}
+
+/* Arredondamento apenas na primeira linha (cabeçalho) */
+.tabela-cabecalho .nome-popular {
+    border-top-left-radius: 10px;
+}
+.tabela-cabecalho .acoes {
+    border-top-right-radius: 10px;
+}
+
+/* Linha de Dados da Tabela */
+.tabela-linha {
+    display: contents; 
+}
+
+.tabela-linha > span, .tabela-linha .acoes {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee; /* Linha divisória sutil */
+    color: #555;
+    display: flex; 
+    align-items: center;
+}
+
+/* Ícones de Ação na Tabela */
+.tabela-linha .acoes {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* Alinha os ícones à direita da célula */
+}
+
+.icon-edit-arvore, .icon-delete-arvore {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.icon-edit-arvore:hover, .icon-delete-arvore:hover{
+    opacity: 100%;
+}
