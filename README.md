@@ -73,5 +73,5 @@ spring.datasource.password=SUA_SENHA_LOCAL_DO_MYSQL
 jwt.secret=COLE_A_CHAVE_SECRETA_JWT_AQUI
 
 ### Módulo Chatbot
-Servidor de Socket em Java Puro
-Mongo DB
+--Servidor de Socket em Java Puro
+--Mongo DB
