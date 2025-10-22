@@ -1,10 +1,8 @@
-import "./CadastroPessoaFisica.css"
-import NavBar from "../components/NavBar/NavBar";
+import "./CadastroPessoaFisica.css";
+import NavBar from "../NavBar/NavBar";
 import { useState } from "react";
 
-
 const CadastroPessoaFisica = () => {
-
     const [step, setStep] = useState(1);
     const nextStep = () => {
         setStep(prev => prev + 1)
@@ -116,10 +114,29 @@ const CadastroPessoaFisica = () => {
                     <div className="form-group"> {/* Agrupamento para Estado */}
                         <label htmlFor="estado" className="estado">Estado</label>
                         <select name="estado" onChange={handleChange} value={dados.estado} className="input-estado">
-                            <option value="">Selecione o Estado</option> {/* Opção padrão */}
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            {/* ... restante das opções de estado ... */}
+                           <option value="AC">Acre</option>
+                           <option value="AL">Alagoas</option>
+                           <option value="AP">Amapá</option>
+                           <option value="AM">Amazonas</option> 
+                           <option value="BA">Bahia</option> 
+                           <option value="CE">Ceará</option> 
+                           <option value="ES">Espírito santo</option> 
+                           <option value="GO">Goiás</option> 
+                           <option value="DF">Distrito Federal</option> 
+                           <option value="PA">Pára</option> 
+                           <option value="PB">Paraíba</option> 
+                           <option value="PR">Paraná</option> 
+                           <option value="PE">Pernambuco</option> 
+                           <option value="RO">Rondonia</option> 
+                           <option value="RR">Roraima</option> 
+                           <option value="SC">Santa Catarina</option> 
+                           <option value="SP">Sao Paulo</option> 
+                           <option value="SE">Sergipe</option> 
+                           <option value="TO">Tocantins</option> 
+                           <option value="PI">Piaui</option> 
+                           <option value="RJ">Rio de Janeiro</option> 
+                           <option value="RN">Rio grande do Norte</option> 
+                           <option value="RS">Rio Grande do Sul</option>
                         </select>
                     </div>
 
