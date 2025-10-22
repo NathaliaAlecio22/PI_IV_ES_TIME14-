@@ -63,6 +63,7 @@ empresas
 projetos
 
 arvores
+```
 
 # CONFIGURAÇÕES LOCAIS DO MYSQL
 spring.datasource.username=root
