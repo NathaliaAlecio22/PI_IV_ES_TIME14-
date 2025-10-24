@@ -4,9 +4,9 @@ import Tela_CadastroPessoaJuridica from "./Pages/Tela_CadastroPessoaJuridica";
 
 const App = () => {
     return(
-        <Dashboard_Principal />
+        //<Dashboard_Principal />
         //<Tela_CadastroPessoaFisica />
-       // <Tela_CadastroPessoaJuridica />
+       <Tela_CadastroPessoaJuridica />
     )
 }
 
