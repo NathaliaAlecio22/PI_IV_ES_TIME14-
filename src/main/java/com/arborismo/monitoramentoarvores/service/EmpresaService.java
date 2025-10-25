@@ -6,7 +6,7 @@ import com.arborismo.monitoramentoarvores.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder; // Essencial para criptografia
 import org.springframework.stereotype.Service;
-import java.time.LocalDateTime; // Não usado no Service, mas bom para referência
+//import java.time.LocalDateTime; // Não usado no Service, mas bom para referência
 
 @Service // Marca a classe como um componente de Serviço (Lógica de Negócio)
 public class EmpresaService {

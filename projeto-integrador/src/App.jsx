@@ -1,12 +1,24 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
 import Dashboard_Principal from "./Pages/Dashboard_Principal";
 import Tela_CadastroPessoaFisica from "./Pages/Tela_CadastroPessoaFisica";
 import Tela_CadastroPessoaJuridica from "./Pages/Tela_CadastroPessoaJuridica";
+import Tela_Perfilusuario from "./Pages/Tela_PerfilUsuario";
+import Tela_SobreProjeto from "./Pages/Tela_SobreProjeto";
 
 const App = () => {
     return(
-        //<Dashboard_Principal />
-        //<Tela_CadastroPessoaFisica />
-       <Tela_CadastroPessoaJuridica />
+        <Router>
+            <Routes>
+                <Route path="/" element={<Dashboard_Principal />} />
+                <Route path="/cadastro-juridica" element={<Tela_CadastroPessoaJuridica />} />
+                <Route path="/perfil" element={<Tela_Perfilusuario />} />
+                <Route path="/sobre-projeto" element={<Tela_SobreProjeto />} />
+                <Route path="/cadastro-fisica" element={<Tela_CadastroPessoaFisica />} />
+
+            </Routes>
+        </Router>
     )
 }
 

@@ -1,0 +1,148 @@
+/* Base e Tipografia */
+
+
+
+
+
+/* Títulos */
+h1 {
+    font-size: 2.6em; 
+    font-weight: 600;
+    color: #4B7359; 
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #4B7359; 
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1.25em;
+    color: #4B7359;
+}
+
+/* --- Seção Principal/Header --- */
+
+.main_header {
+    margin-bottom: 40px;
+}
+
+.banner_container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.banner_image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);;
+    
+}
+
+
+/* --- Seções de Conteúdo (Desafio Urbano e Solução) --- */
+
+.urban_challenge, .our_solution {
+    padding: 50px 0; 
+    background-color: transparent; /* Fundo cinza das seções */
+}
+
+.content_wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+/* Layout Específico do "O Desafio Urbano" (Ícone à Esquerda) */
+.urban_challenge .content_wrapper {
+    flex-direction: row; 
+}
+
+/* Layout Específico da "A Nossa Solução" (Ícone à Direita) */
+.our_solution .content_wrapper {
+    flex-direction: row; 
+}
+
+.text_content {
+    flex: 1;
+}
+
+.icon_container {
+    flex-shrink: 0;
+    width: 300px; 
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.challenge_icon {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.solution_icon {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+
+/* --- CTA Final --- */
+.final_cta {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: none;
+}
+
+.final_cta p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #4B7359;
+    
+}
+
+.final_cta p strong {
+    font-weight: 700;
+}
+
+.cta_button {
+    background-color: #488f50; /* Verde escuro do botão */
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100vh;
+    text-decoration: none;
+}
+
+.cta_button:hover {
+    background-color: #3b7441; /* Um verde um pouco mais escuro no hover */
+}
+
+
