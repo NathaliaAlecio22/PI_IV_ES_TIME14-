@@ -6,6 +6,7 @@ import Tela_CadastroPessoaFisica from "./Pages/Tela_CadastroPessoaFisica";
 import Tela_CadastroPessoaJuridica from "./Pages/Tela_CadastroPessoaJuridica";
 import Tela_Perfilusuario from "./Pages/Tela_PerfilUsuario";
 import Tela_SobreProjeto from "./Pages/Tela_SobreProjeto";
+import Tela_Login from "./Pages/Tela_Login";
 
 const App = () => {
     return(
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path="/perfil" element={<Tela_Perfilusuario />} />
                 <Route path="/sobre-projeto" element={<Tela_SobreProjeto />} />
                 <Route path="/cadastro-fisica" element={<Tela_CadastroPessoaFisica />} />
+                <Route path="/login" element={<Tela_Login />} />
 
             </Routes>
         </Router>

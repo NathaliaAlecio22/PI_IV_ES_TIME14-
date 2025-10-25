@@ -5,7 +5,7 @@
 
 
 /* Títulos */
-h1 {
+.main_header h1 {
     font-size: 2.6em; 
     font-weight: 600;
     color: #4B7359; 
@@ -15,14 +15,14 @@ h1 {
     padding: 0 20px;
 }
 
-h2 {
+.text_content h2 {
     font-size: 1.8em;
     font-weight: 700;
     color: #4B7359; 
     margin-bottom: 20px;
 }
 
-p {
+.text_content p {
     line-height: 1.6;
     font-size: 1.25em;
     color: #4B7359;

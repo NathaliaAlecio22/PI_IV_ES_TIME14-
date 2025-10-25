@@ -1,0 +1,165 @@
+/* Container Geral e Fundo */
+.container_geral {
+    display: flex;
+    background-color: transparent;
+    min-height: 100vh; 
+    margin-top: -20px;
+}
+
+/* Div do Título e Fundo Esquerdo */
+.container_titulo {
+    flex: 1; 
+    display: flex;
+    align-items: flex-start; /* Alinha o texto no topo da seção (mais próximo da NavBar) */
+    /* Ajustando o padding para deixar o texto mais próximo do topo e da lateral */
+    padding: 60px 80px 10% 80px; 
+    position: relative;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #4c6e5e; 
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    z-index: 2;
+    /* Definir uma largura máxima para o texto não se espalhar demais */
+    max-width: 70%; 
+    margin-top: -16px;
+    font-size: 43px;
+}
+
+/* Círculos Verdes no Fundo Esquerdo (Mantido o mesmo) */
+.container_titulo::before,
+.container_titulo::after {
+    content: "";
+    position: absolute;
+    background-color: #6d9078;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.container_titulo::before {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    left: -150px;
+    transform: scale(1.2);
+}
+
+.container_titulo::after {
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+    left: 50px;
+}
+
+/* Container do Formulário (Direita) */
+.container_form {
+    flex-shrink: 0; 
+    /* REDUZINDO A LARGURA */
+    width: 350px; 
+    /* AJUSTANDO A MARGEM (encosta mais no topo e na direita) */
+    margin: 30px 180px 50px 0; 
+    
+    background-color: #e9e4df; 
+    padding: 40px; /* Reduzido o padding interno também */
+    border-radius: 15px;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 38px;
+}
+
+.titulo_bemvindo {
+    color: #333;
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.titulo_login {
+    color: #2e694b;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+.input_email,
+.input_senha {
+    width: 92%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c4c1bd; 
+    color: #333;
+    font-size: 1rem;
+}
+
+.input_email::placeholder,
+.input_senha::placeholder {
+    color: #666;
+}
+
+.form a {
+    color: #2e694b;
+    font-size: 0.9rem;
+    text-align: left;
+    text-decoration: none;
+    margin-top: -10px;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.btn_login {
+    background-color: #2e694b; 
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    width: 100%;
+    
+}
+
+.btn_login:hover {
+    background-color: #24523a;
+}
+
+/* Container "Não tem conta?" (Mantido o mesmo) */
+.container_sem_conta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.paragrafo {
+    color: #666;
+    margin-right: 5px;
+}
+
+.cadastrar_aqui {
+    color: #666;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cadastrar_aqui:hover {
+    text-decoration: underline;
+}
