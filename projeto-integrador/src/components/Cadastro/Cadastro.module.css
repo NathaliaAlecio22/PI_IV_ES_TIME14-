@@ -1,0 +1,113 @@
+/* ====== CONTAINER GERAL ====== */
+.container_geral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4ef;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  background-color: transparent;
+}
+
+/* ====== TÍTULO PRINCIPAL ====== */
+.container_titulo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #386733;
+
+}
+
+/* ====== FORM ====== */
+.container_form {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.form_titulo {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* ====== OPÇÕES ====== */
+.pessoa_fisica,
+.pessoa_juridica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.pessoa_fisica img,
+.pessoa_juridica img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.pessoa_fisica strong,
+.pessoa_juridica strong {
+  font-size: 1rem;
+  color: #1e3a2b;
+  margin-bottom: 6px;
+}
+
+.pessoa_fisica p,
+.pessoa_juridica p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* ====== HOVER E SELEÇÃO ====== */
+.pessoa_fisica:hover,
+.pessoa_juridica:hover {
+  background-color: #f2f8f5;
+  border-color: #4e8a63;
+}
+
+.selecionado {
+  border: 2px solid #2f8f4e;
+  background-color: #e9f7ef;
+}
+
+/* ====== BOTÃO CONTINUAR ====== */
+button {
+  width: 100%;
+  background-color: #2f8f4e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover:enabled {
+  background-color: #256f3f;
+}
+
+button:disabled {
+  background-color: #b9cbbd;
+  cursor: not-allowed;
+}
