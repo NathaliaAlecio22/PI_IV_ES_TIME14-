@@ -8,6 +8,7 @@ import Tela_Perfilusuario from "./Pages/Tela_PerfilUsuario";
 import Tela_SobreProjeto from "./Pages/Tela_SobreProjeto";
 import Tela_Login from "./Pages/Tela_Login";
 import Tela_Cadastro from "./Pages/Tela_Cadastro";
+import Tela_EsquecerSenha from "./Pages/Tela_EsquecerSenha";
 
 const App = () => {
     return(
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/cadastro-fisica" element={<Tela_CadastroPessoaFisica />} />
                 <Route path="/login" element={<Tela_Login />} />
                 <Route path="/cadastro" element={<Tela_Cadastro />} />
+                <Route path="/esquecer-senha" element={<Tela_EsquecerSenha />} />
             </Routes>
         </Router>
     )

@@ -1,0 +1,65 @@
+.container_geral {
+  max-width: 360px;
+  margin: 80px auto;
+  padding: 70px 30px;
+  background-color: #ece8de; /* fundo da caixinha */
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px #c9c5bb;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+ 
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d6135;
+  margin-bottom: 30px;
+  margin-top: -20px;
+  
+}
+
+.paragrafo {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #4b4b4b;
+  margin-bottom: 30px;
+}
+
+.form_esquecer_senha {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* input */
+.input_email {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #cfcfc9;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.input_email::placeholder {
+  color: #6f6f6f;
+}
+
+/* botão */
+.btn_enviar_email {
+  padding: 14px;
+  background-color: #1d6135;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn_enviar:hover {
+  background-color: #174e2a;
+}
