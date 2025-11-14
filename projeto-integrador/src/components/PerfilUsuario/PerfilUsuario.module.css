@@ -1,0 +1,85 @@
+/* ===== Fundo geral ===== */
+.container_geral {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa a tela toda */
+  background-color: #f4f3ed; /* bege claro igual à imagem */
+}
+
+/* ===== Container principal que agrupa perfil + informações ===== */
+.container_perfil,
+.container_informacoes {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Agrupamento dos dois blocos lado a lado ===== */
+.container_geral {
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+/* ===== Bloco do perfil ===== */
+.container_perfil {
+  width: 280px;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.titulo_perfil {
+  color: #2f5233;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.logo_username {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #2f5233;
+}
+
+.alterar_foto_perfil {
+  background-color: transparent;
+  border: none;
+  color: #2f5233;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.alterar_foto_perfil:hover {
+  color: #3b7a40;
+  text-decoration: underline;
+}
+
+/* ===== Bloco das informações ===== */
+.container_informacoes {
+  width: 400px;
+  padding: 2rem;
+}
+
+.titulo_informacoes {
+  color: #2f5233;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #c4d7c4;
+  padding-bottom: 0.3rem;
+}
+
+.container_informacoes p {
+  color: #444;
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+.container_informacoes strong {
+  color: #2f5233;
+}

@@ -1,0 +1,199 @@
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #F0F0F0; 
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
+    width: 90%;
+}
+
+.topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo {
+    color: #2A5A3D; 
+    font-size: 1.8em; 
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.passos {
+    color: #8C8C8C; 
+    font-size: 0.9em;
+}
+
+/* --- ESTRUTURA DO FORMULÁRIO (GRID) --- */
+.form {
+    display: grid;
+    /* Define 2 colunas para campos principais */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px 30px; 
+}
+
+/* --- NOVAS REGRAS PARA FORM-GROUP (Label acima do Input) --- */
+.form_group {
+    /* Ocupa a largura total da célula (1 das 2 colunas) */
+    grid-column: span 1; 
+    display: flex;
+    flex-direction: column; /* Empilha Label e Input verticalmente */
+}
+
+/* Campos que devem ocupar a linha inteira (Complemento, Email - use a classe 'full-width' no JSX) */
+.form_group.full_width {
+    grid-column: 1 / 3; 
+}
+
+/* Labels */
+/* Elas não precisam de grid-column, o .form-group já cuida disso */
+.form_group label, .form label {
+    font-weight: 400; /* Mais destaque para a label */
+    font-size: 0.95em;
+    margin-bottom: 5px; /* Mais espaço entre label e input */
+}
+
+/* Label de "Data de Nascimento" continua ocupando a linha inteira */
+.data_nascimennto {
+    grid-column: 1 / 3; 
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* --- INPUTS GERAIS E SELECT --- */
+.form input,
+.form select {
+    /* Não precisa de grid-column: span 1; pois estão dentro de .form-group */
+    width: 100%;
+    padding: 12px;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    background-color: #C4C4C4; 
+    color: #555;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form input::placeholder {
+    color: #999;
+}
+
+/* --- TRATAMENTO ESPECIAL PARA OS 3 CAMPOS DE DATA --- */
+
+/* Este é o container dos 3 inputs de Dia/Mês/Ano */
+.data_group {
+    grid-column: 1 / 3; /* Ocupa a linha inteira */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas iguais */
+    gap: 15px; /* Espaço entre Dia, Mês e Ano */
+    margin-bottom: 20px; /* Espaço abaixo do grupo de data */
+}
+
+/* Garante que os inputs de data sigam a nova regra de 3 colunas do .data-group */
+.data_group input, .data_group select {
+    /* Ocupa 1 das 3 colunas do .data-group */
+    grid-column: span 1; 
+    /* Remove as propriedades de float conflitantes */
+    float: none;
+    margin: 0 !important; /* Reseta as margens do float anterior */
+    width: 100%;
+}
+
+/* Simulação do Select/Dropdown (Seta) - APLICADO AOS INPUTS DE DATA E AO SELECT DE ESTADO */
+.data_group input, .data_group select, .form_group select {
+    appearance: none; 
+    -webkit-appearance: none;
+    /* Seta para baixo em SVG */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%20fill%3D%22%23555555%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+    padding-right: 35px;
+}
+
+/* --- BOTÕES (Fica lado a lado na última linha) --- */
+
+/* Novo container para agrupar os botões (para Steps 2 e 3) */
+.button_group {
+    grid-column: 1 / 3; /* Ocupa a linha inteira */
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita (opcional, mas comum) */
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+/* Ajuste os botões para Steps 2 e 3 para caberem no flex container */
+.back_step, .next_step, .btn_submit {
+    flex-grow: 1;
+    /* Remove as propriedades de grid que causavam conflito e float */
+    grid-column: unset; 
+    clear: none; 
+    width: auto; /* Deixa o flexbox definir a largura */
+    padding: 14px 30px; /* Ajusta o padding para serem mais finos */
+    margin-top: 0 !important; /* Reseta margens */
+    border-radius: 10px;
+    border: none;
+}
+
+/* Botão Próximo/Enviar (Primário) */
+.next_step, .btn_submit {
+    background-color: #2A5A3D; 
+    color: #fff;
+    font-weight: bold;
+}
+
+.next_step:hover, .btn_submit:hover {
+    background-color: #1f432a;
+}
+
+/* Botão Voltar (Secundário) */
+.back_step {
+    background-color: #ff0000; 
+    color: white;
+    font-weight: bold;
+}
+
+.back_step:hover {
+    background-color: #c10000;
+}
+
+
+/* --- RESPONSIVIDADE (Telas menores que 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .form {
+        /* No mobile, use uma única coluna */
+        grid-template-columns: 1fr; 
+    }
+
+    /* Todos os grupos ocupam a largura total (1/1) */
+    .form_group, .form_group.full_width, .data_group {
+        grid-column: 1 / 2;
+    }
+    
+    /* Os 3 campos de data voltam para 1 coluna vertical */
+    .data_group {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    /* Botões na linha inteira */
+    .button_group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .back_step, .next_step, .btn_submit {
+        width: 100%;
+        padding: 12px;
+    }
+}
