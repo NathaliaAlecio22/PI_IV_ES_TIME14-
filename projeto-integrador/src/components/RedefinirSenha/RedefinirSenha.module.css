@@ -1,0 +1,61 @@
+/* Container geral da página */
+.container_redefinirSenha {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 80px 60px;
+  background-color: #f3eee6; /* bege claro igual da foto */
+  border: none; /* azul/verde da borda */
+  border-radius: 12px;
+
+
+  box-shadow: 4px 4px 0px #c9c5bb;
+}
+
+/* Título */
+.titulo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: -40px;
+  color: #1f7a4f; /* verde igual ao navbar */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form */
+.form_redefinirSenha {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 20px;
+}
+
+/* Inputs */
+.input_nova_senha,
+.input_confirmar_senha {
+  width: 100%;
+  padding: 14px;
+  background-color: #ccc; /* cinza igual da imagem */
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Botão */
+.btn_redefinir_senha {
+  margin-top: 20px;
+  padding: 14px 0;
+  background-color: #1f7a4f; /* verde */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 180px;
+  align-self: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn_redefinir_senha:hover {
+  background-color: #17633f; /* verde mais escuro */
+}

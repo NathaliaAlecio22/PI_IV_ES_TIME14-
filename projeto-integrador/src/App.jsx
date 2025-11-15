@@ -9,6 +9,7 @@ import Tela_SobreProjeto from "./Pages/Tela_SobreProjeto";
 import Tela_Login from "./Pages/Tela_Login";
 import Tela_Cadastro from "./Pages/Tela_Cadastro";
 import Tela_EsquecerSenha from "./Pages/Tela_EsquecerSenha";
+import Tela_RedefinirSenha from "./Pages/Tela_RedefinirSenha";
 
 const App = () => {
     return(
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/login" element={<Tela_Login />} />
                 <Route path="/cadastro" element={<Tela_Cadastro />} />
                 <Route path="/esquecer-senha" element={<Tela_EsquecerSenha />} />
+                <Route path="/redefinir-senha" element={<Tela_RedefinirSenha />} />
             </Routes>
         </Router>
     )
