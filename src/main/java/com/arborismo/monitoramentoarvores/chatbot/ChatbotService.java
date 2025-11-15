@@ -2,8 +2,8 @@ package com.arborismo.monitoramentoarvores.chatbot;
 
 import org.springframework.stereotype.Service;
 import java.net.Socket;
-import java.io.DataInputStream;  // <-- Mudança
-import java.io.DataOutputStream; // <-- Mudança
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 
 // REMOVA OS IMPORTS de Comunicado e Mensagem, eles não são mais necessários aqui.
