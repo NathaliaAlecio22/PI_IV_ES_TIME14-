@@ -37,7 +37,7 @@ public class AuthenticationService {
             if (passwordEncoder.matches(password, usuarioPF.getSenha())) {
                 // Sucesso PF: Gera o token
                 String token = jwtService.generateToken(usuarioPF.getEmail(), "PF", usuarioPF.getId());
-                return new LoginResponse(token, "PF", usuarioPF.getId());
+                return new LoginResponse(token, "PF", usuarioPF.getId(), usuarioPF.getNomeCompleto());
             }
         }
 
@@ -52,7 +52,7 @@ public class AuthenticationService {
             if (passwordEncoder.matches(password, empresaPJ.getSenha())) {
                 // Sucesso PJ: Gera o token
                 String token = jwtService.generateToken(empresaPJ.getEmailCorporativo(), "PJ", empresaPJ.getId());
-                return new LoginResponse(token, "PJ", empresaPJ.getId());
+                return new LoginResponse(token, "PJ", empresaPJ.getId(), empresaPJ.getNomeFantasia());
             }
         }
 

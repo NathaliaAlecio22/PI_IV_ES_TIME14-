@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import com.arborismo.monitoramentoarvores.security.CustomUserDetails;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/projetos")
@@ -37,4 +38,39 @@ public class ProjetoController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscarProjetoPorId(
+            @PathVariable Long id,
+            Authentication authentication
+    ) {
+        try {
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+
+            // Validação opcional de propriedade do projeto
+            if (!projetoService.isDonoDoProjeto(id, userDetails.getId(), userDetails.getTipoUsuario())) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body("Você não tem permissão para acessar este projeto.");
+            }
+
+            ProjetoResponseDTO dto = projetoService.buscarProjetoComArvores(id);
+            return ResponseEntity.ok(dto);
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> listarMeusProjetos(Authentication authentication) {
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        Long donoId = userDetails.getId();
+        String donoTipo = userDetails.getTipoUsuario();
+
+        List<ProjetoResponseDTO> projetos = projetoService.listarProjetosDoUsuario(donoId, donoTipo);
+
+        return ResponseEntity.ok(projetos);
+    }
+
+
 }

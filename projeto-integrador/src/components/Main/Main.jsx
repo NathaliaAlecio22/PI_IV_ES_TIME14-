@@ -1,14 +1,17 @@
-import Projetos from "../Projetos/Projetos.jsx";
-import DescricaoProjetos from "../DescricaoProjetos/DescricaoProjetos.jsx";
+import { useState } from "react";
+import Projetos from "../Projetos/Projetos";
+import DescricaoProjetos from "../DescricaoProjetos/DescricaoProjetos";
 import "./Main.css";
 
 const Main = () => {
-  return (
-    <div className="dashboard-central">
-      <Projetos />
-      <DescricaoProjetos />
-    </div>
-  );
+    const [projetoSelecionado, setProjetoSelecionado] = useState(null);
+
+    return (
+        <div className="dashboard-wrapper">
+            <Projetos onSelectProjeto={setProjetoSelecionado} />
+            <DescricaoProjetos projetoId={projetoSelecionado} />
+        </div>
+    );
 };
 
 export default Main;

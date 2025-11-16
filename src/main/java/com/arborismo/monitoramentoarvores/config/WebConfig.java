@@ -13,10 +13,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**") // Permite CORS para todas as rotas que começam com /api/
-                .allowedOrigins("http://localhost:5173") // A origem do seu React (Vite)
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
-                .allowedHeaders("*") // Permite todos os cabeçalhos (incluindo o 'Authorization' do JWT)
-                .allowCredentials(true); // Permite o envio de credenciais (cookies/tokens)
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .exposedHeaders("Authorization")
+                .allowCredentials(true);
     }
 }

@@ -3,6 +3,7 @@ package com.arborismo.monitoramentoarvores.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.List;
 
 // DTO de SAÍDA: Usado para enviar o projeto criado de volta ao Frontend
 @Data
@@ -20,4 +21,6 @@ public class ProjetoResponseDTO {
     private String donoTipo; // Tipo do dono ("PF" ou "PJ")
 
     private LocalDateTime dataCriacao; // Quando foi criado
+
+    private List<ArvoreResponseDTO> arvores;
 }

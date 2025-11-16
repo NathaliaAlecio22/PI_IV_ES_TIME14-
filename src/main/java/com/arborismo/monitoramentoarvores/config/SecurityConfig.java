@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.arborismo.monitoramentoarvores.security.JwtRequestFilter;
 
+
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -37,23 +40,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Desabilita para APIs REST
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sem Sessão
+                .cors(cors -> {}) // <-- Habilita o CORS dentro do Spring Security
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        // --- TODAS AS ROTAS PÚBLICAS JUNTAS ---
                         .requestMatchers(
                                 "/api/usuarios/cadastro",
                                 "/api/empresas/cadastro",
                                 "/api/auth/login",
-                                "/api/arvores/scan/**" // ROTA PÚBLICA PARA QR CODE
-                        ).permitAll() // Permite acesso sem JWT
-
-                        // --- TODAS AS ROTAS PROTEGIDAS ---
-                        .anyRequest().authenticated() // Qualquer outra rota exige JWT
+                                "/api/arvores/scan/**",
+                                "/error" // recomendado para evitar problemas
+                        ).permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll() // <-- preflight
+                        .anyRequest().authenticated()
                 )
-                // NOVO: Adiciona o filtro JWT antes do filtro padrão de username/password
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
+
 }

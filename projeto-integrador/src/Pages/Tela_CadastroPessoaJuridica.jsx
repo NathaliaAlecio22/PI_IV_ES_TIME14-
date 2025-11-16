@@ -2,7 +2,7 @@ import CadastroPessoaJuridica from "../components/CadastroPessoaJuridica/Cadastr
 const Tela_CadastroPessoaJuridica = () => {
     return(
         <CadastroPessoaJuridica />
-)
+    )
 }
 
 export default Tela_CadastroPessoaJuridica;

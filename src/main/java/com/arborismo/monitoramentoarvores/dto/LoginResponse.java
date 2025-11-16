@@ -12,4 +12,5 @@ public class LoginResponse {
     private String token;
     private String tipoUsuario; // Ex: "PF" ou "PJ"
     private Long id; // ID do usuário logado
+    private String nome;
 }

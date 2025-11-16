@@ -1,13 +1,17 @@
 package com.arborismo.monitoramentoarvores.service;
 
+import com.arborismo.monitoramentoarvores.dto.ArvoreResponseDTO;
 import com.arborismo.monitoramentoarvores.dto.ProjetoCadastroDTO;
-import com.arborismo.monitoramentoarvores.dto.ProjetoResponseDTO; // NOVO IMPORT
+import com.arborismo.monitoramentoarvores.dto.ProjetoResponseDTO;
 import com.arborismo.monitoramentoarvores.model.Projeto;
+import com.arborismo.monitoramentoarvores.repository.ArvoreRepository;
 import com.arborismo.monitoramentoarvores.repository.ProjetoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
-//import java.util.List;
 
 @Service
 public class ProjetoService {
@@ -15,7 +19,10 @@ public class ProjetoService {
     @Autowired
     private ProjetoRepository projetoRepository;
 
-    // 1. Mudar o retorno para ProjetoResponseDTO
+    @Autowired
+    private ArvoreRepository arvoreRepository;
+
+    // Cadastro do projeto
     public ProjetoResponseDTO cadastrar(ProjetoCadastroDTO dto, Long donoId, String donoTipo) {
 
         if (projetoRepository.findByNome(dto.getNome()) != null) {
@@ -30,25 +37,59 @@ public class ProjetoService {
 
         Projeto projetoSalvo = projetoRepository.save(novoProjeto);
 
-        // 2. Retorna o DTO de Resposta após salvar
         return converterEntidadeParaDto(projetoSalvo);
     }
-    // MÉTODO: Verifica se o donoId e donoTipo correspondem ao projeto
+
+    // Verificar se o usuário é o dono
     public boolean isDonoDoProjeto(Long projetoId, Long donoId, String donoTipo) {
         Optional<Projeto> projetoOpt = projetoRepository.findById(projetoId);
 
         if (projetoOpt.isEmpty()) {
-            // Se o projeto não existe, ele não é o dono (pode lançar exceção ou retornar false)
             return false;
         }
 
         Projeto projeto = projetoOpt.get();
 
-        // Compara o ID e o Tipo do dono logado com os dados do projeto no banco
-        return projeto.getDonoId().equals(donoId) && projeto.getDonoTipo().equals(donoTipo);
+        return projeto.getDonoId().equals(donoId) && projeto.getDonoTipo().equalsIgnoreCase(donoTipo);
     }
 
-    // MÉTODO: Mapeamento de Entidade -> DTO de Resposta (Faz a simetria da Service!)
+    // Buscar projeto + lista de árvores
+    public ProjetoResponseDTO buscarProjetoComArvores(Long projetoId) {
+
+        Projeto projeto = projetoRepository.findById(projetoId)
+                .orElseThrow(() -> new RuntimeException("Projeto não encontrado."));
+
+        List<ArvoreResponseDTO> arvoresDTO = arvoreRepository.findAllByProjetoId(projetoId)
+                .stream()
+                .map(arvore -> new ArvoreResponseDTO(
+                        arvore.getId(),
+                        arvore.getNomePopular(),
+                        arvore.getNomeCientifico(),
+                        arvore.getLocalizacao(),
+                        arvore.getAlturaMetros(),
+                        arvore.getIdadeEstimadaAnos(),
+                        arvore.getInclinacaoTroncoGraus(),
+                        arvore.getRaizesExpostas(),
+                        arvore.getFormaCopa(),
+                        arvore.getPragasDoencas(),
+                        arvore.getOcoTronco(),
+                        arvore.getRachadurasFissuras(),
+                        arvore.getDataUltimaPoda() != null ? arvore.getDataUltimaPoda().toString() : null,
+                        arvore.getTipoUltimaPoda(),
+                        arvore.getProximidadeRisco(),
+                        arvore.getAvaliacaoRisco(),
+                        arvore.getResponsavelInspecao(),
+                        arvore.getObservacoesAdicionais(),
+                        arvore.getSituacaoRecomendada()
+                ))
+                .toList();
+
+        ProjetoResponseDTO dto = converterEntidadeParaDto(projeto);
+        dto.setArvores(arvoresDTO);
+        return dto;
+    }
+
+    // Conversão Entidade → DTO
     private ProjetoResponseDTO converterEntidadeParaDto(Projeto projeto) {
         ProjetoResponseDTO dto = new ProjetoResponseDTO();
         dto.setId(projeto.getId());
@@ -60,5 +101,13 @@ public class ProjetoService {
         return dto;
     }
 
+    public List<ProjetoResponseDTO> listarProjetosDoUsuario(Long donoId, String donoTipo) {
+
+        List<Projeto> projetos = projetoRepository.findAllByDonoIdAndDonoTipo(donoId, donoTipo);
+
+        return projetos.stream()
+                .map(this::converterEntidadeParaDto)
+                .toList();
+    }
 
 }

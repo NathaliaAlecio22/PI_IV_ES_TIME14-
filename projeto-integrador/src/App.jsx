@@ -10,6 +10,9 @@ import Tela_Login from "./Pages/Tela_Login";
 import Tela_Cadastro from "./Pages/Tela_Cadastro";
 import Tela_EsquecerSenha from "./Pages/Tela_EsquecerSenha";
 import Tela_RedefinirSenha from "./Pages/Tela_RedefinirSenha";
+import DescricaoProjetos from "./components/DescricaoProjetos/DescricaoProjetos.jsx";
+import EditarArvore  from "./components/Arvores/EditarArvore.jsx";
+
 
 const App = () => {
     return(
@@ -24,6 +27,13 @@ const App = () => {
                 <Route path="/cadastro" element={<Tela_Cadastro />} />
                 <Route path="/esquecer-senha" element={<Tela_EsquecerSenha />} />
                 <Route path="/redefinir-senha" element={<Tela_RedefinirSenha />} />
+                <Route path="/projeto/:id" element={<DescricaoProjetos />} />
+                <Route path="/projeto/:idProjeto/editar-arvore/:idArvore" element={<EditarArvore />} />
+                <Route path="/projeto/:projetoId/arvores/:arvoreId/editar" element={<EditarArvore />} />
+
+
+
+
             </Routes>
         </Router>
     )
