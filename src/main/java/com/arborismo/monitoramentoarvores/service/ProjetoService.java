@@ -6,6 +6,7 @@ import com.arborismo.monitoramentoarvores.dto.ProjetoResponseDTO;
 import com.arborismo.monitoramentoarvores.model.Projeto;
 import com.arborismo.monitoramentoarvores.repository.ArvoreRepository;
 import com.arborismo.monitoramentoarvores.repository.ProjetoRepository;
+import com.arborismo.monitoramentoarvores.dto.ProjetoUpdateDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -109,5 +110,44 @@ public class ProjetoService {
                 .map(this::converterEntidadeParaDto)
                 .toList();
     }
+
+    public ProjetoResponseDTO atualizarProjeto(Long id, ProjetoUpdateDTO dto, Long donoId, String donoTipo) {
+
+        Projeto projeto = projetoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Projeto não encontrado"));
+
+        if (!projeto.getDonoId().equals(donoId) || !projeto.getDonoTipo().equalsIgnoreCase(donoTipo)) {
+            throw new RuntimeException("Você não tem permissão para atualizar este projeto.");
+        }
+
+        projeto.setNome(dto.getNome());
+        projeto.setDescricao(dto.getDescricao());
+
+        Projeto projetoAtualizado = projetoRepository.save(projeto);
+
+        ProjetoResponseDTO dtoResponse = new ProjetoResponseDTO();
+        dtoResponse.setId(projetoAtualizado.getId());
+        dtoResponse.setNome(projetoAtualizado.getNome());
+        dtoResponse.setDescricao(projetoAtualizado.getDescricao());
+        dtoResponse.setDonoId(projetoAtualizado.getDonoId());
+        dtoResponse.setDonoTipo(projetoAtualizado.getDonoTipo());
+        dtoResponse.setDataCriacao(projetoAtualizado.getDataCriacao());
+        dtoResponse.setArvores(
+                projetoAtualizado.getArvores() != null ?
+                        projetoAtualizado.getArvores().stream()
+                                .map(arvore -> {
+                                    ArvoreResponseDTO a = new ArvoreResponseDTO();
+                                    a.setId(arvore.getId());
+                                    a.setNomePopular(arvore.getNomePopular());
+                                    a.setNomeCientifico(arvore.getNomeCientifico());
+                                    a.setLocalizacao(arvore.getLocalizacao());
+                                    return a;
+                                }).toList()
+                        : null
+        );
+
+        return dtoResponse;
+    }
+
 
 }

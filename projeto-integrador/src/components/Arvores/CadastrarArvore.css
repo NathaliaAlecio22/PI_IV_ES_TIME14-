@@ -1,0 +1,123 @@
+.cadastro-arvore-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.cadastro-card {
+    width: 90%;
+    max-width: 1100px;
+    background-color: #dcdad2;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cadastro-titulo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2f5f2e;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+.cadastro-form {
+    width: 100%;
+}
+
+.cadastro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+
+}
+
+
+.campo-full {
+    grid-column: span 2;
+}
+
+.campo label {
+    font-size: 14px;
+    color: #2f5f2e;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    width: 100%;
+    border: 1px solid #b7b7b7;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    border-color: #2f6d3b;
+    box-shadow: 0px 0px 6px rgba(47, 109, 59, 0.4);
+}
+
+/* Textarea */
+.campo textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+/* Buttons */
+.cadastro-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+.btn-voltar,
+.btn-salvar {
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* voltar */
+.btn-voltar {
+    background-color: #8c8c8c;
+    border: none;
+    color: #fff;
+}
+.btn-voltar:hover {
+    background-color: #6f6f6f;
+}
+
+/* salvar */
+.btn-salvar {
+    background-color: #2f6d3b;
+    border: none;
+    color: #fff;
+}
+.btn-salvar:hover {
+    background-color: #265b32;
+    transform: scale(1.03);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cadastro-grid {
+        grid-template-columns: 1fr;
+    }
+    .campo-full {
+        grid-column: span 1;
+    }
+}

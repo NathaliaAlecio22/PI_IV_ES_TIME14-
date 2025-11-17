@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Delete from "../../assets/Delete.png";
 import Edit from "../../assets/Edit.png";
 import "./Projetos.css";
@@ -6,13 +7,11 @@ import "./Projetos.css";
 const Projetos = ({ onSelectProjeto }) => {
     const [projetos, setProjetos] = useState([]);
     const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     useEffect(() => {
         buscarProjetos();
     }, []);
-
-
-    console.log("Erro 0");
 
     const buscarProjetos = async () => {
         try {
@@ -21,8 +20,7 @@ const Projetos = ({ onSelectProjeto }) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
-            console.log("Erro 1");
+            console.log("Erro projeto1");
 
             if (!response.ok) {
                 throw new Error("Erro ao buscar projetos");
@@ -31,25 +29,28 @@ const Projetos = ({ onSelectProjeto }) => {
             const data = await response.json();
             setProjetos(data);
 
-            console.log("Erro 2");
-
-            // Se houver pelo menos 1 projeto, já seleciona o primeiro automaticamente
+            // Selecionar o primeiro automaticamente
             if (data.length > 0) {
                 onSelectProjeto(data[0].id);
             }
 
-            console.log("Erro 3");
         } catch (error) {
-            console.error("Erro ao carregar projetos:", error.message);
+            console.error("Erro ao carregar projetos:", error);
         }
+        console.log("Erro projeto2");
     };
 
-    console.log("Erro 4");
+    const editarProjeto = (id) => {
+        navigate(`/projeto/editar/${id}`);
+    };
+
     return (
         <aside className="central-projetos">
             <div className="proj-header">
                 <h2 className="projetos-titulo">Projetos</h2>
-                <button className="btn-add">+</button>
+                <button className="btn-add" onClick={() => navigate("/projeto/criar")}>
+                    +
+                </button>
             </div>
 
             <ul className="lista-projetos">
@@ -63,9 +64,18 @@ const Projetos = ({ onSelectProjeto }) => {
                             <span className="projeto-nome">{projeto.nome}</span>
 
                             <div className="projeto-acoes">
-                                <img src={Edit} alt="Editar" className="icon-edit" />
+                                <img
+                                    src={Edit}
+                                    alt="Editar"
+                                    className="icon-edit"
+                                    onClick={() => navigate(`/projetos/editar/${projeto.id}`)}
+
+
+                                />
                                 <img src={Delete} alt="Excluir" className="icon-delete" />
                             </div>
+
+
                         </li>
                     ))
                 ) : (
@@ -76,6 +86,8 @@ const Projetos = ({ onSelectProjeto }) => {
             </ul>
         </aside>
     );
+
+    console.log("Erro projeto4");
 };
 
 export default Projetos;
