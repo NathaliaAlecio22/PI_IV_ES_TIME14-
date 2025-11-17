@@ -1,5 +1,8 @@
 # 🌿Sentinela - Monitoramento de Árvores 
 
+## Link do figma:
+https://www.figma.com/design/dHOvCDxzCoLIFb2umSBl3T/Site-Sentinela---Projeto-Integrador-IV?node-id=0-1&t=bqzKl7mLI9t2G9DX-1
+
 ## 📖 Visão Geral
 O **Sentinela** é um sistema **RESTful** desenvolvido em **Spring Boot** para o **monitoramento e gestão de ativos ambientais (árvores)**.  
 A aplicação permite o **cadastro seguro de usuários (Pessoa Física e Jurídica)**, o **gerenciamento de projetos de arborismo (CRUD)** e a **identificação única de árvores via QR Code**.
