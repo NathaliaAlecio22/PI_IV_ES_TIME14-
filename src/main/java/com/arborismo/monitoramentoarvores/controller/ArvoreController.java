@@ -30,15 +30,15 @@ public class ArvoreController {
             @RequestBody ArvoreCadastroDTO dto,
             Authentication authentication // Necessário para autorização (JWT)
     ) {
-        // 1. EXTRAÇÃO DE DADOS DO USUÁRIO LOGADO (REAL!)
-        // O principal é o CustomUserDetails que criamos
+
+
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         Long donoId = userDetails.getId();
         String donoTipo = userDetails.getTipoUsuario();
 
         try {
             // 2. Chamar o Serviço, PASSANDO AS INFORMAÇÕES DE DONO (donoId e donoTipo)
-            // MODIFICADO: A assinatura do Service precisa aceitar estes dois novos parâmetros!
+
             Arvore arvoreSalva = arvoreService.cadastrar(dto, projetoId, donoId, donoTipo);
 
             // 3. Sucesso: Retorna a entidade criada com 201 CREATED

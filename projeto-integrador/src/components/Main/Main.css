@@ -1,0 +1,26 @@
+.main-container {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(#f4fbee, #ffffff);
+}
+
+
+
+
+
+/* Ajuste para a área de lista */
+.main-container > aside {
+    width: 25%;
+    max-width: 320px;
+    min-width: 260px;
+    border-right: 1px solid #dcdcdc;
+    background-color: #f6f6f6;
+}
+
+/* Ajuste para a área de conteúdo */
+.main-container > main {
+    width: 75%;
+    padding: 25px 35px;
+    overflow-y: auto;
+}

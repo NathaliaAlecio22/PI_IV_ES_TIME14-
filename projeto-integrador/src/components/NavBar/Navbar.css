@@ -1,99 +1,171 @@
-.nav-dashboard {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px; 
-    background-color: transparent; 
-    
-}
-
-
-.nav-left {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    margin-right: 10px; /* Espaço entre a logo e o bloco verde */
-    padding-top: 0px; /* Ajusta o alinhamento vertical com o bloco verde */
-}
-
-.logo-nav {
-    height: 114px; 
-    width: auto;
-    padding-right: 1px;
-    margin: 0px;
-}
-
-
-.nav-principal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1; 
-    background-color: #386733; /* Cor de fundo principal (Verde Escuro) */
-    padding: 0px 28px; 
-    height: 65px; 
-    border-radius: 12px; /* Cantos arredondados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-}
-
-/* --- Seção Central (Links) --- */
-
-.nav-center {
-    display: flex;
-    align-items: center;
-    gap: 70px; 
-    height: 100%;
-}
-
-.nav-link {
-    color: #ffffff; 
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
-    height: 100%;
-    transition: color 0.3s;
-}
-
-.nav-link.active {
-    /* Link Ativo - Estilo "Projetos" */
-    font-weight: 1000; /* Mais negrito */
-    color: #ffffff; 
-    position: relative;
-}
-
-.nav-link.active::after {
-    /* Linha branca de sublinhado */
-    content: '';
-    position: absolute;
-    top: 50px; 
-    left: 0;
+/* NAVBAR CONTAINER */
+.navbar {
     width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-}
-
-/* --- Seção Direita (Nome e Ícone de Perfil) --- */
-
-.nav-right {
+    height: 70px;
     display: flex;
     align-items: center;
-    gap: 10px; 
-    color: #ffffff; 
-    font-size: 16px;
+    justify-content: space-between;
+    padding: 0 25px;
+    background: transparent;
+    font-family: "Inter", sans-serif;
+}
 
+/* LOGO */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 70px;
+    width: auto;
+    cursor: pointer;
+}
+
+/* NAV LINKS */
+.navbar-center {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: #2b4e31;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding-bottom: 3px;
+    transition: 0.25s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: #1d3823;
+    border-bottom: 2px solid #3e7043;
+}
+
+.nav-item.active {
+    font-weight: 700;
+    border-bottom: 2px solid #3e7043;
+    color: #1d3823;
+}
+
+/* PERFIL */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-username {
-    font-weight: 500;
-    font-size: 18px;
-    padding-left: 1px;
+    font-size: 1rem;
+    color: #2c2c2c;
+    font-weight: 600;
 }
 
-.logo-username{
-    height: 40px;
-    padding: 0px;
-    margin-top: 6px;
+.nav-user-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* transforma em branco */
+}
+
+
+/* Contêiner geral da navbar */
+.nav-dashboard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #f2f0e9; /* cor bege do fundo da página */
+    padding: 10px 15px;
+}
+
+/* Logo */
+.nav-left {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.logo-nav {
+    height: 85px;
+    cursor: pointer;
+}
+
+/* Barra verde */
+.nav-bar-green {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1f6037;
+    width: 100%;
+    border-radius: 22px;
+    padding: 0 28px;
+    height: 55px;
+
+}
+
+/* Links centrais */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+/* Link ativo */
+.nav-link.active {
+    font-weight: 400;
+    border-bottom: none;
+}
+
+/* Hover suave */
+.nav-link:hover {
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+}
+
+/* Perfil */
+.nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-username {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+/* Ícone branco de perfil */
+.nav-user-icon {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1); /* transforma preto em branco */
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.nav-user-icon:hover {
+    transform: scale(1.08);
+    filter: brightness(0) invert(1) drop-shadow(0px 0px 4px rgba(255,255,255,0.5));
 }

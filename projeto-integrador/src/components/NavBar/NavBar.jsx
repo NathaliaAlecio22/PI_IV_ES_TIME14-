@@ -1,34 +1,37 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
-import Logo_username from "../../assets/Logo_username.png";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.png"; // CORRETO
+import userIcon from "../../assets/Logo_username.png"; // usa o preto e transforma via CSS
 
 const NavBar = () => {
     const [nomeUsuario, setNomeUsuario] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const nome = localStorage.getItem("nome");
-        setNomeUsuario(nome ? nome : "Usuário");
+        setNomeUsuario(nome || "Nome");
     }, []);
 
     return (
         <nav className="nav-dashboard">
+
+            {/* LOGO */}
             <div className="nav-left">
                 <img src={logo} alt="Logo Sentinela" className="logo-nav" />
             </div>
 
-            <div className="nav-principal">
-                <div className="nav-center">
-                    <a href="#" className="nav-link active">Projetos</a>
-                    <a href="#" className="nav-link">Sobre o projeto</a>
-                    <a href="#" className="nav-link">Planos</a>
+            {/* BARRA VERDE */}
+            <div className="nav-bar-green">
+                <div className="nav-links">
+                    <button className="nav-link active" onClick={() => navigate("/")}>Projetos</button>
+                    <button className="nav-link" onClick={() => navigate("/sobre-projeto")}>Sobre o projeto</button>
+
                 </div>
 
-                <div className="nav-right">
+                <div className="nav-profile" onClick={() => navigate("/perfil")}>
                     <span className="nav-username">{nomeUsuario}</span>
-                    <div className="nav-profile-icon">
-                        <img src={Logo_username} alt="Logo username" className="logo-username" />
-                    </div>
+                    <img src={userIcon} className="nav-user-icon" alt="Perfil" />
                 </div>
             </div>
         </nav>

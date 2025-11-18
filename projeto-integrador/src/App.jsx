@@ -12,6 +12,12 @@ import Tela_EsquecerSenha from "./Pages/Tela_EsquecerSenha";
 import Tela_RedefinirSenha from "./Pages/Tela_RedefinirSenha";
 import DescricaoProjetos from "./components/DescricaoProjetos/DescricaoProjetos.jsx";
 import EditarArvore  from "./components/Arvores/EditarArvore.jsx";
+import EditarProjeto from "./components/Projetos/EditarProjeto.jsx";
+import CriarProjeto from "./components/Projetos/CriarProjeto.jsx";
+import CadastrarArvore from "./components/Arvores/CadastrarArvore.jsx";
+
+
+
 
 
 const App = () => {
@@ -30,6 +36,12 @@ const App = () => {
                 <Route path="/projeto/:id" element={<DescricaoProjetos />} />
                 <Route path="/projeto/:idProjeto/editar-arvore/:idArvore" element={<EditarArvore />} />
                 <Route path="/projeto/:projetoId/arvores/:arvoreId/editar" element={<EditarArvore />} />
+                <Route path="/projetos/editar/:id" element={<EditarProjeto />} />
+                <Route path="/projeto/criar" element={<CriarProjeto />} />
+                <Route path="/projeto/:projetoId/arvores/criar" element={<CadastrarArvore />} />
+
+
+
 
 
 

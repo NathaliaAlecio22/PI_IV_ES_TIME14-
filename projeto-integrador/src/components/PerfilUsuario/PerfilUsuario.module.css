@@ -1,11 +1,81 @@
 /* ===== Fundo geral ===== */
 .container_geral {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* ocupa a tela toda */
-  background-color: #f4f3ed; /* bege claro igual à imagem */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+    min-height: calc(100vh - 90px); /* mantém abaixo do nav */
+    background-color: #f4f3ed;
 }
+
+.header_editar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_editar {
+    background-color: #2f5233;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn_editar:hover {
+    background-color: #234226;
+}
+
+.form_editar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.form_editar input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #b5c7b5;
+}
+
+.botoes {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn_salvar {
+    background-color: #2f6d3b;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_cancelar {
+    background-color: #999;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_salvar:hover {
+    background-color: #255c30;
+}
+
+.btn_cancelar:hover {
+    background-color: #777;
+}
+
+
 
 /* ===== Container principal que agrupa perfil + informações ===== */
 .container_perfil,
@@ -83,3 +153,28 @@
 .container_informacoes strong {
   color: #2f5233;
 }
+
+
+.card_sucesso {
+    position: fixed;
+    top: 90px; /* abaixo do navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2f6d3b;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -10px); }
+    10% { opacity: 1; transform: translate(-50%, 0); }
+    90% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+

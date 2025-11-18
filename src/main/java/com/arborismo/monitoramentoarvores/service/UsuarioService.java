@@ -6,6 +6,7 @@ import com.arborismo.monitoramentoarvores.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder; // Para criptografia
 import org.springframework.stereotype.Service;
+import com.arborismo.monitoramentoarvores.dto.UsuarioUpdateDTO;
 
 @Service
 public class UsuarioService {
@@ -62,4 +63,33 @@ public class UsuarioService {
 
         return usuario;
     }
+
+    public Usuario atualizarPerfil(Long id, UsuarioUpdateDTO dto) {
+
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+
+        // Verifica se o CPF sendo informado já existe em outra pessoa
+        if (!usuario.getCpf().equals(dto.getCpf()) && usuarioRepository.findByCpf(dto.getCpf()) != null) {
+            throw new RuntimeException("CPF já está em uso por outro usuário.");
+        }
+
+        // Atualização de dados
+        usuario.setNomeCompleto(dto.getNomeCompleto());
+        usuario.setCpf(dto.getCpf());
+        usuario.setDataNascimento(dto.getDataNascimento());
+        usuario.setTelefone(dto.getTelefone());
+
+        usuario.setRua(dto.getRua());
+        usuario.setNumero(dto.getNumero());
+        usuario.setComplemento(dto.getComplemento());
+        usuario.setBairro(dto.getBairro());
+        usuario.setCidade(dto.getCidade());
+        usuario.setEstado(dto.getEstado());
+        usuario.setCep(dto.getCep());
+
+        return usuarioRepository.save(usuario);
+    }
+
+
 }

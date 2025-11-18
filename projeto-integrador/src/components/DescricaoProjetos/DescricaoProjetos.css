@@ -10,6 +10,45 @@
         -5px 0 10px -5px rgba(0, 0, 0, 0.5); 
 }
 
+
+
+.arvores-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.10rem;
+    margin-left: 0.5rem;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    gap: 15px;
+}
+
+
+.btn-add-arvore {
+    background-color: #2F6D3B; /* verde */
+    color: #fff;
+    font-size: 1rem;          /* menor */
+    font-weight: bold;
+    padding: 4px 10px;        /* menos espaço interno */
+    width: 34px;              /* deixa o botão proporcional e redondo */
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;       /* torna o botão redondo */
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.btn-add-arvore:hover {
+    background-color: #265b32;
+    transform: scale(1.08);
+}
+
+
+
 /* --- Títulos e Informações do Projeto --- */
 
 .titulo-conteudo {
@@ -129,3 +168,64 @@
 .icon-edit-arvore:hover, .icon-delete-arvore:hover{
     opacity: 100%;
 }
+
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-confirmacao {
+    background: white;
+    padding: 25px;
+    width: 330px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-confirmacao h3 {
+    margin-bottom: 10px;
+    color: #2F6D3B;
+}
+
+.modal-botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-confirmar {
+    background-color: #c62828;
+    border: none;
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #777;
+    border: none;
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover {
+    background-color: #a00000;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a5a5a;
+}
+

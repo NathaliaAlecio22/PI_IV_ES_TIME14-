@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import com.arborismo.monitoramentoarvores.dto.UsuarioUpdateDTO;
+import com.arborismo.monitoramentoarvores.service.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -21,6 +23,10 @@ public class UsuarioPerfilController {
 
     @Autowired
     private EmpresaRepository empresaRepository;
+
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/perfil")
     public ResponseEntity<?> obterPerfil(Authentication authentication) {
@@ -77,4 +83,20 @@ public class UsuarioPerfilController {
             return ResponseEntity.ok(dto);
         }
     }
+
+    @PutMapping("/perfil")
+    public ResponseEntity<?> atualizarPerfil(@RequestBody UsuarioUpdateDTO dto, Authentication authentication) {
+        try {
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            Long id = userDetails.getId();
+
+            usuarioService.atualizarPerfil(id, dto);
+
+            return ResponseEntity.ok("Perfil atualizado com sucesso!");
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }

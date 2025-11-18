@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import com.arborismo.monitoramentoarvores.security.CustomUserDetails;
 import java.util.List;
+import com.arborismo.monitoramentoarvores.dto.ProjetoUpdateDTO;
 
 @RestController
 @RequestMapping("/api/projetos")
@@ -71,6 +72,60 @@ public class ProjetoController {
 
         return ResponseEntity.ok(projetos);
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> atualizarProjeto(
+            @PathVariable Long id,
+            @RequestBody ProjetoUpdateDTO dto,
+            Authentication authentication
+    ) {
+        try {
+            // Obtém dados do usuário autenticado
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            Long donoId = userDetails.getId();
+            String donoTipo = userDetails.getTipoUsuario();
+
+            // Validação de segurança: só edita se for dono
+            if (!projetoService.isDonoDoProjeto(id, donoId, donoTipo)) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body("Você não tem permissão para editar este projeto.");
+            }
+
+            ProjetoResponseDTO atualizado = projetoService.atualizarProjeto(id, dto, donoId, donoTipo);
+            return ResponseEntity.ok(atualizado);
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarProjeto(
+            @PathVariable Long id,
+            Authentication authentication
+    ) {
+        try {
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            Long donoId = userDetails.getId();
+            String donoTipo = userDetails.getTipoUsuario();
+
+            // Validar permissão
+            if (!projetoService.isDonoDoProjeto(id, donoId, donoTipo)) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body("Você não tem permissão para excluir este projeto.");
+            }
+
+            projetoService.deletarProjeto(id);
+            return ResponseEntity.ok("Projeto excluído com sucesso!");
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+
 
 
 }

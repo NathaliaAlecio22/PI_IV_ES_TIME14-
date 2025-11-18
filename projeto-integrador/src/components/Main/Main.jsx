@@ -7,7 +7,7 @@ const Main = () => {
     const [projetoSelecionado, setProjetoSelecionado] = useState(null);
 
     return (
-        <div className="dashboard-wrapper">
+        <div className="main-container">
             <Projetos onSelectProjeto={setProjetoSelecionado} />
             <DescricaoProjetos projetoId={projetoSelecionado} />
         </div>
