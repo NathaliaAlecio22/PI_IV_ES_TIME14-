@@ -60,7 +60,7 @@ const CadastrarArvore = () => {
             if (!response.ok) throw new Error("Erro ao cadastrar árvore");
 
             alert("Árvore cadastrada com sucesso!");
-            navigate(`/`);
+            navigate(`/dashboard`);
         } catch (error) {
             alert("Erro ao cadastrar, tente novamente.");
             console.error(error);
@@ -176,7 +176,7 @@ const CadastrarArvore = () => {
                         </div>
 
                         <div className="cadastro-btns">
-                            <button type="button" className="btn-voltar" onClick={() => navigate(`/`)}>
+                            <button type="button" className="btn-voltar" onClick={() => navigate(`/dashboard`)}>
                                 Voltar
                             </button>
                             <button type="submit" className="btn-salvar">Cadastrar</button>

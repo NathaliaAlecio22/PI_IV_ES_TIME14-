@@ -30,10 +30,10 @@ const App = () => {
     return(
         <Router>
             <Routes>
-                <Route path="/" element={<Dashboard_Principal />} />
+                <Route path="/dashboard" element={<Dashboard_Principal />} />
                 <Route path="/cadastro-juridica" element={<Tela_CadastroPessoaJuridica />} />
                 <Route path="/perfil" element={<Tela_Perfilusuario />} />
-                <Route path="/sobre-projeto" element={<Tela_SobreProjeto />} />
+                <Route path="/" element={<Tela_SobreProjeto />} />
                 <Route path="/cadastro-fisica" element={<Tela_CadastroPessoaFisica />} />
                 <Route path="/login" element={<Tela_Login />} />
                 <Route path="/cadastro" element={<Tela_Cadastro />} />

@@ -39,7 +39,7 @@ const CriarProjeto = () => {
             }
 
             alert("Projeto criado com sucesso!");
-            navigate("/"); // volta ao dashboard
+            navigate("/dashboard"); // volta ao dashboard
         } catch (error) {
             alert(error.message);
         } finally {

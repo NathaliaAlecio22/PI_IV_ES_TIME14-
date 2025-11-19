@@ -41,11 +41,11 @@ const Login = () => {
 
             // Redirecionamento por tipo de usuário
             if (tipoUsuario === "PF") {
-                navigate("/");
+                navigate("/dashboard");
             } else if (tipoUsuario === "PJ") {
-                navigate("/");
+                navigate("/dashboard");
             } else {
-                navigate("/home");
+                navigate("/");
             }
 
         } catch (error) {
@@ -96,7 +96,7 @@ const Login = () => {
 
                     <div className={styles.container_sem_conta}>
                         <p className={styles.paragrafo}>Não tem uma conta?</p>
-                        <a className={styles.cadastrar_aqui} href="#">
+                        <a className={styles.cadastrar_aqui} href="/cadastro">
                             Cadastre-se aqui
                         </a>
                     </div>

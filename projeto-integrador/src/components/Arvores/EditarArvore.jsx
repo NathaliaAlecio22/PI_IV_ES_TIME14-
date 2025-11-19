@@ -114,7 +114,7 @@ const EditarArvore = () => {
             if (!response.ok) throw new Error("Erro ao atualizar");
 
             alert("Alterações salvas com sucesso!");
-            navigate("/");
+            navigate("/dashboard");
 
         } catch (error) {
             console.error(error);
@@ -245,7 +245,7 @@ const EditarArvore = () => {
                         </div>
 
                         <div className="editar-btns">
-                            <button type="button" className="btn-voltar" onClick={() => navigate("/")}>
+                            <button type="button" className="btn-voltar" onClick={() => navigate("/dashboard")}>
                                 Voltar
                             </button>
 

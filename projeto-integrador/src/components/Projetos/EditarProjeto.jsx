@@ -62,7 +62,7 @@ const EditarProjeto = () => {
             if (!response.ok) throw new Error("Erro ao salvar");
 
             alert("Projeto atualizado com sucesso!");
-            navigate("/");
+            navigate("/dashboard");
         } catch (error) {
             alert("Erro ao atualizar projeto.");
         }

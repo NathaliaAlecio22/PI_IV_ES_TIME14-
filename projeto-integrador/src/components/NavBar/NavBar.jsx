@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../assets/logo.png";
 import userIcon from "../../assets/Logo_username.png";
@@ -7,58 +7,82 @@ import userIcon from "../../assets/Logo_username.png";
 const NavBar = () => {
     const [nomeUsuario, setNomeUsuario] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const nome = localStorage.getItem("nome");
         if (nome) {
-            const primeiroNome = nome.split(" ")[0];
-            setNomeUsuario(primeiroNome);
+            setNomeUsuario(nome.split(" ")[0]); // pega primeiro nome
         } else {
-            setNomeUsuario("Nome");
+            setNomeUsuario("");
         }
     }, []);
 
     const realizarLogout = () => {
         localStorage.clear();
-        navigate("/sobre-projeto");
+        navigate("/");
     };
+
+    const estaNaHome = location.pathname === "/";
 
     return (
         <nav className="nav-dashboard">
 
-            {/* LOGO */}
+
             <div className="nav-left">
-                <img src={logo} alt="Logo Sentinela" className="logo-nav" />
+                <img
+                    src={logo}
+                    alt="Logo Sentinela"
+                    className="logo-nav"
+                    onClick={() => navigate("/")}
+                    style={{ cursor: "pointer" }}
+                />
             </div>
 
-            {/* BARRA VERDE */}
+
             <div className="nav-bar-green">
+
+                {/* LINKS CENTRAIS */}
                 <div className="nav-links">
-                    <button className="nav-link active" onClick={() => navigate("/")}>
+                    <button className="nav-link" onClick={() => navigate("/dashboard")}>
                         Projetos
                     </button>
-                    <button className="nav-link" onClick={() => navigate("/sobre-projeto")}>
-                        Sobre o projeto
-                    </button>
+
                     <button className="nav-link" onClick={() => navigate("/chatbot")}>
-                        Dúvidas
+                        ChatBot
                     </button>
                 </div>
 
-                {/* PERFIL + SAIR*/}
-                <div className="nav-profile">
-                    <span className="nav-username">{nomeUsuario}</span>
 
-                    <img
-                        src={userIcon}
-                        className="nav-user-icon"
-                        alt="Perfil"
-                        onClick={() => navigate("/perfil")}
-                    />
+                <div className="nav-actions">
 
-                    <button className="logout-button" onClick={realizarLogout}>
-                        Sair
-                    </button>
+                    {/* 🔥 MOSTRA LOGIN SOMENTE NA HOME */}
+                    {estaNaHome && (
+                        <button
+                            className="login-button"
+                            onClick={() => navigate("/login")}
+                        >
+                            Login
+                        </button>
+                    )}
+
+
+                    {!estaNaHome && (
+                        <div className="nav-profile">
+                            <span className="nav-username">{nomeUsuario}</span>
+
+                            <img
+                                src={userIcon}
+                                className="nav-user-icon"
+                                alt="Perfil"
+                                onClick={() => navigate("/perfil")}
+                            />
+
+                            <button className="logout-button" onClick={realizarLogout}>
+                                Sair
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </nav>
