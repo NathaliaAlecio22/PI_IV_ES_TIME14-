@@ -1,0 +1,11 @@
+.chatbot-page-container {
+    width: 100%;
+    height: calc(100vh - 69px); /* abaixo da navbar */
+    background: linear-gradient(#f4fbee, #d5ead5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centraliza */
+    padding: 0px;
+
+}

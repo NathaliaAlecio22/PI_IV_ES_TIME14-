@@ -79,21 +79,25 @@
     display: flex;
     align-items: center;
     width: 100%;
-    background: #f2f0e9; /* cor bege do fundo da página */
-    padding: 10px 15px;
+    background: #f2f0e9;
+    padding: 0; /* IMPORTANTE! Remove espaço extra */
+    margin: 0;  /* Evita bordas fantasma */
+    box-sizing: border-box;
+    border-bottom: 1px solid #e3e1da; /* opcional, deixa mais bonito */
 }
+
 
 /* Logo */
 .nav-left {
     display: flex;
     align-items: center;
-    margin-right: 12px;
 }
 
 .logo-nav {
-    height: 85px;
-    cursor: pointer;
+    height: 65px;
+    margin-left: 10px;
 }
+
 
 /* Barra verde */
 .nav-bar-green {
@@ -102,19 +106,24 @@
     justify-content: space-between;
     background: #1f6037;
     width: 100%;
-    border-radius: 22px;
-    padding: 0 28px;
-    height: 55px;
-
+    height: 60px;
+    padding: 0 25px;
+    box-sizing: border-box;
+    border-radius:15px ;
+    margin-right: 10px;
+    margin-top: 0;
 }
+
 
 /* Links centrais */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 55px;
+    gap: 45px;
     justify-content: center;
     margin-bottom: 15px;
+    padding-right: 30px;
+
 }
 
 .nav-link {
@@ -124,11 +133,10 @@
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-    transition: 0.2s;
-    white-space: nowrap;
+    white-space: nowrap;   /* 👈 impede quebra de linha */
+    padding: 0 8px;
 }
+
 
 /* Link ativo */
 .nav-link.active {
@@ -146,6 +154,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    justify-content: center;
 }
 
 .nav-username {
@@ -169,3 +178,31 @@
     transform: scale(1.08);
     filter: brightness(0) invert(1) drop-shadow(0px 0px 4px rgba(255,255,255,0.5));
 }
+
+
+.logout-button {
+    margin-left: 12px;
+    padding: 8px 14px;
+
+    background-color: #333 !important;  /* garante que nunca fique verde */
+    color: white !important;
+
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.25s ease;
+}
+
+.logout-button:hover {
+    background-color: #c62828 !important;   /* vermelho garantido */
+    transform: scale(1.05);
+    color: white;
+}
+
+

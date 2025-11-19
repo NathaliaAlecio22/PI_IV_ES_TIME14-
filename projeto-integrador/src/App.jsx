@@ -15,6 +15,12 @@ import EditarArvore  from "./components/Arvores/EditarArvore.jsx";
 import EditarProjeto from "./components/Projetos/EditarProjeto.jsx";
 import CriarProjeto from "./components/Projetos/CriarProjeto.jsx";
 import CadastrarArvore from "./components/Arvores/CadastrarArvore.jsx";
+import ChatBotPage from "./components/ChatBotPage/ChatBotPage";
+
+
+
+
+
 
 
 
@@ -39,6 +45,9 @@ const App = () => {
                 <Route path="/projetos/editar/:id" element={<EditarProjeto />} />
                 <Route path="/projeto/criar" element={<CriarProjeto />} />
                 <Route path="/projeto/:projetoId/arvores/criar" element={<CadastrarArvore />} />
+                <Route path="/chatbot" element={<ChatBotPage />} />
+
+
 
 
 

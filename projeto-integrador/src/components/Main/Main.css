@@ -3,9 +3,9 @@
     width: 100%;
     min-height: calc(100vh - 80px);
     background: linear-gradient(#f4fbee, #ffffff);
+    overflow-x: hidden;
+    padding-top: 15px;
 }
-
-
 
 
 
@@ -16,11 +16,20 @@
     min-width: 260px;
     border-right: 1px solid #dcdcdc;
     background-color: #f6f6f6;
+    flex: 0 0 25%;
 }
 
 /* Ajuste para a área de conteúdo */
 .main-container > main {
-    width: 75%;
+    width: 100%;
     padding: 25px 35px;
     overflow-y: auto;
+    flex: 1 1 auto;
 }
+
+/* Garantir que o botão flutuante do ChatBot fique acima do conteúdo */
+.main-container {
+    position: relative;
+    z-index: 1;
+}
+

@@ -4,6 +4,8 @@ import Delete from "../../assets/Delete.png";
 import Edit from "../../assets/Edit.png";
 import "./DescricaoProjetos.css";
 
+
+
 const DescricaoProjetos = ({ projetoId }) => {
     const [projeto, setProjeto] = useState(null);
     const [erro, setErro] = useState("");
