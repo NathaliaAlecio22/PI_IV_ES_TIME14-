@@ -9,7 +9,7 @@ public class MongoConnection {
 
     // --- 1. SUA STRING DE CONEXÃO DO ATLAS ---
     // (A mesma que você usou no application-secret.properties do Spring)
-    private static final String CONNECTION_STRING = "mongodb+srv://nathaliaalecio99_db_user:vt5d2399a@nathaliaalecio.8y92ixk.mongodb.net/?appName=NathaliaAlecio;";
+    private static final String CONNECTION_STRING =;
 
     // --- 2. OBJETOS ESTÁTICOS (SINGLETON) ---
     // Mantemos uma única instância do cliente para todo o servidor.
@@ -50,4 +50,5 @@ public class MongoConnection {
 
         return database.getCollection("regras");
     }
+
 }
